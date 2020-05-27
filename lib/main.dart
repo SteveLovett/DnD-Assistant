@@ -16,12 +16,9 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Dungeons & Dragons 5e Assistant',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color(0xFFD63447),
           title: Text('Dungeons & Dragons 5e Assistant'),
         ),
         body: Center(
@@ -37,8 +34,12 @@ class _MyAppState extends State<MyApp> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  FlatButton(
-                    padding: const EdgeInsets.all(8),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color(0x99F57B51),
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                    margin: const EdgeInsets.all(15.0),
                     child: Text(
                       'Are you a Dungeon Master or an Adventurer?',
                       style: TextStyle(
@@ -47,22 +48,12 @@ class _MyAppState extends State<MyApp> {
                           color: Colors.white),
                       textAlign: TextAlign.center,
                     ),
-                    color: Color(0x88F44336),
-                    disabledColor: Color(0x88F44336),
-                    onPressed: null,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(20),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      questionCard('Dungeon Master'),
-                      Container(
-                        color: Colors.transparent,
-                        width: 20,
-                      ),
-                      questionCard('Adventurer'),
+                      QuestionCard(playerTitle: 'Dungeon Master'),
+                      QuestionCard(playerTitle: 'Adventurer'),
                     ],
                   ),
                 ],
