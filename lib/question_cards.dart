@@ -4,8 +4,9 @@ class QuestionCard extends StatefulWidget {
   @override
   _QuestionCardState createState() => _QuestionCardState();
   final String playerTitle;
+  final String screenTitle;
 
-  const QuestionCard({this.playerTitle});
+  const QuestionCard({@required this.playerTitle, @required this.screenTitle});
 }
 
 class _QuestionCardState extends State<QuestionCard> {
@@ -25,7 +26,7 @@ class _QuestionCardState extends State<QuestionCard> {
         onPressed: () {
           setState(
             () {
-              print('ouch');
+              Navigator.pushNamed(context, widget.screenTitle);
             },
           );
         },
